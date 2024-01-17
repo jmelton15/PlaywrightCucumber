@@ -1,0 +1,27 @@
+{
+  "name": "playwright-cucumber-jm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rimraf test-results && mkdirp test-results",
+    "generate:report": "node src/helper/reportGenerate.js",
+    "pretest": "npm run clean:reports",
+    "posttest": "npm run generate:report",
+    "execute:script": "cucumber-js test",
+    "test": "npm run execute:script || npm run posttest",
+    "execute:script:failed": "cucumber-js -p rerun @rerun.txt",
+    "test:failed":"npm run execute:script:failed || npm run generate:report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.2.1",
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.11.0",
+    "mkdirp": "^3.0.1",
+    "multiple-cucumber-html-reporter": "^3.6.0",
+    "rimraf": "^5.0.5"
+  }
+}
