@@ -12,7 +12,7 @@
     "test": "npm run execute:script || npm run posttest",
     "execute:script:failed": "cucumber-js -p rerun @rerun.txt",
     "test:failed":"npm run execute:script:failed || npm run generate:report",
-    "setup-pw":"npm install && npx playwright install && npm run test"
+    "setup-pw":"npm install && npx playwright install"
   },
   "keywords": [],
   "author": "",
