@@ -7,7 +7,7 @@ let page;
 let browserContext;
 
 BeforeAll(async function() {
-    browser = await chromium.launch({headless:false});
+    browser = await chromium.launch({headless:true});
 })
 
 //No arrow functions with hooks
