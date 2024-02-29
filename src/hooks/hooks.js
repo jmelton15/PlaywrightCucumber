@@ -8,10 +8,9 @@ let page;
 let browserContext;
 
 async function createJSON() {
-    const filepath = "../"
     const inside = JSON.stringify({"test":"test"});
     try {
-        await fs.writeFile(`${filepath}testjsonfile.json`,inside, 'utf8', (err) => {
+        await fs.writeFile(`testjsonfile.json`,inside, 'utf8', (err) => {
             if (err) {
               console.error(`Error writing to file: ${err.message}`);
             } else {
@@ -46,6 +45,6 @@ After(async function({pickle,result}) {
 })
 
 AfterAll(async function() {
-    await createJson();
+    await createJSON();
     await browser.close();
 })
