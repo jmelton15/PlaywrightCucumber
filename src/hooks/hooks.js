@@ -1,10 +1,27 @@
 const { Before,After, BeforeAll, AfterAll, Status} = require("@cucumber/cucumber");
 const {chromium} = require('@playwright/test');
 const {pageFixture} = require("./pageFixture");
+const fs = require('fs').promises;
 
 let browser;
 let page;
 let browserContext;
+
+async function createJSON() {
+    const filepath = "../"
+    const inside = JSON.stringify({"test":"test"});
+    try {
+        await fs.writeFile(`${filepath}testjsonfile.json`,inside, 'utf8', (err) => {
+            if (err) {
+              console.error(`Error writing to file: ${err.message}`);
+            } else {
+              console.log(`Object successfully saved to ${this.jsonFileName}`); 
+            }
+        });
+    } catch(err) {
+        console.error(err)
+    }
+}
 
 BeforeAll(async function() {
     browser = await chromium.launch({headless:true});
@@ -29,5 +46,6 @@ After(async function({pickle,result}) {
 })
 
 AfterAll(async function() {
+    await createJson();
     await browser.close();
 })
