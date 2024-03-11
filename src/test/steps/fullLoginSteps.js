@@ -11,7 +11,7 @@ When('I input search term as {string}', async function (searchTerm) {
 });
 
 When('I click the google search button', async function () {
-    await pageFixture.page.locator("body_1 > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf > div.FPdoLc.lJ9FBc > center > input.gNO89b").click();
+    await pageFixture.page.locator("body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf > div.FPdoLc.lJ9FBc > center > input.gNO89b").click();
 });
 
 Then('I should see moon h3 header with text {string}', async function (text) {
